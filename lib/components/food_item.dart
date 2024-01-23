@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class FoodItem extends StatelessWidget {
-  const FoodItem(
-      {Key? key,
-      required this.itemTitle,
-      required this.itemPrice,
-      required this.imageURI})
-      : super(key: key);
+  const FoodItem({
+    Key? key,
+    required this.itemTitle,
+    required this.itemPrice,
+    required this.imageURI,
+  }) : super(key: key);
   final String itemTitle;
   final String itemPrice;
   final String imageURI;
@@ -29,7 +29,9 @@ class FoodItem extends StatelessWidget {
                   Text(
                     itemTitle,
                     style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.w500),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   Text("R\$ $itemPrice"),
                 ],
@@ -37,6 +39,8 @@ class FoodItem extends StatelessWidget {
             ),
             Image(
               image: AssetImage(imageURI),
+              width: 80,
+              height: 80,
               fit: BoxFit.cover,
             ),
           ],
