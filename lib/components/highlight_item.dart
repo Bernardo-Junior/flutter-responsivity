@@ -24,6 +24,8 @@ class HighlightItem extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image(
+            height: 116,
+            width: double.infinity,
             image: AssetImage(imageURI),
             fit: BoxFit.cover,
           ),
