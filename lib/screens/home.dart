@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_layout/screens/food_menu.dart';
 
 import '../components/main_drawer.dart';
 import '../themes/app_colors.dart';
+import 'drink_menu.dart';
+import 'highlights.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,6 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final List<Widget> pages = const [Highlights(), FoodMenu(), DrinkMenu()];
   int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
@@ -61,6 +65,7 @@ class _HomeState extends State<Home> {
           });
         },
       ),
+      body: pages[_currentPage],
     );
   }
 }
