@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'counter_component.dart';
 
 class OrderItem extends StatefulWidget {
-  const OrderItem(
-      {Key? key,
-      required this.imageURI,
-      required this.itemTitle,
-      required this.itemPrice})
-      : super(key: key);
+  const OrderItem({
+    Key? key,
+    required this.imageURI,
+    required this.itemTitle,
+    required this.itemPrice,
+  }) : super(key: key);
   final String imageURI;
   final String itemTitle;
   final String itemPrice;
@@ -30,15 +30,32 @@ class _OrderItemState extends State<OrderItem> {
           Image(
             image: AssetImage(widget.imageURI),
             fit: BoxFit.cover,
+            width: 80,
+            height: 80,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(widget.itemTitle),
-                Text(widget.itemPrice),
-              ],
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    widget.itemTitle,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    widget.itemPrice,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           const Padding(

@@ -22,6 +22,7 @@ class HighlightItem extends StatelessWidget {
       color: Theme.of(context).colorScheme.surfaceVariant,
       elevation: 0,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Image(
             height: 116,
@@ -41,7 +42,15 @@ class HighlightItem extends StatelessWidget {
                 Text("R\$ $itemPrice"),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Text(itemDescription),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).orientation ==
+                            Orientation.landscape
+                        ? 100
+                        : null,
+                    child: Text(
+                      itemDescription,
+                    ),
+                  ),
                 ),
                 Align(
                   alignment: Alignment.centerRight,

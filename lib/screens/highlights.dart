@@ -9,6 +9,8 @@ class Highlights extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Padding(
       padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
       child: CustomScrollView(
@@ -26,7 +28,13 @@ class Highlights extends StatelessWidget {
               ),
             ),
           ),
-          SliverList(
+          SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: isLandscape ? 3 : 1,
+              crossAxisSpacing: isLandscape ? 8.0 : 0.0,
+              mainAxisSpacing: isLandscape ? 8.0 : 0.0,
+              childAspectRatio: isLandscape ? 0.6 : 0.9,
+            ),
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 final item = highlights[index];
